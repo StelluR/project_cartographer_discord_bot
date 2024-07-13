@@ -11,14 +11,31 @@
 ## Usage
 ### Manually with nodejs
 1. Install nodejs on your OS
-2. Run the following command (in git directory) to install discord.js
+2. Run the following command (in git directory) to install all necessary packages
 ```bash
-npm install discord.js
+npm install
 ``` 
 3. Run the following command (in git directory) to run the bot
 ```bash
 node bot.js
 ``` 
+#### Using pm2 process manager (must follow steps 1 & 2 on manual nodejs install first)
+1. If on Windows, follow https://github.com/jessety/pm2-installer to install pm2-installer in order to automatically start pm2 upon server reboot.\
+More information about pm2 startup can be found here: https://pm2.keymetrics.io/docs/usage/startup/
+2. Run the following commands to start the bot via pm2:
+```bash
+pm2 start <path to bot.js> --name "cartographer_rolebot" --log-date-format="YYYY-MM-DD HH:mm:ss Z" -- --color
+pm2 save
+```
+3. If using Linux/MacOS run:
+```bash
+pm2 startup
+```
+4. To see logs:
+```
+pm2 logs cartographer_rolebot
+```
+
 ### Docker
 1. Install docker on your OS
 2. Run following command to build the docker image in git directory

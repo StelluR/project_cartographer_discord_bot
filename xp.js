@@ -121,4 +121,13 @@ class XP {
     }
 }
 
-module.exports = XP;
+function sendRankUpMessage(message, levelInfo) {
+	const embed = new EmbedBuilder()
+		.setTitle('Congratulations ' + message.author.username + ', You have ranked up!')
+		.setColor(0xff0000)
+		.setDescription("You've reached rank " + levelInfo + "!");
+	// Send the embed to the same channel as the message
+	message.channel.send({ embeds: [embed] });
+}
+
+module.exports = { XP, sendRankUpMessage };
